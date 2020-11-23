@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     sessions:      'users/sessions'
   }
 
+  resources :recipes
+
 end
