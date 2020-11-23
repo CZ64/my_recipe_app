@@ -1,26 +1,30 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="user-form">
+  <h1>ログイン</h1>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="inner-wrap">
+      <%= f.label :email do %>メールアドレス
+        <%= f.email_field :email, autofocus: true %>
+      <% end %>
+
+      <%= f.label :password do %>パスワード
+        <%= f.password_field :password %>
+      <% end %>
+
+    </div>
+
+    <div class="button-section">
+      <%= f.submit "ログイン" %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+
+<!-- 参考CSSサイト
+  https://www.sanwebe.com/2014/08/css-html-forms-designs
+-->

@@ -1,14 +1,23 @@
 
 
- 
+<% @users.each do |user| %>
+  <%= user.name %>
+<% end %>
+
 <div id="B">
  カテゴリー
+ <% if user_signed_in? %>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, "data-confirm" => "本当にログアウトしますか？", class: 'dropdown-item' %>
+  <% end %>
 </div>
- 
+
 <div id="C">
  ランキング
+ <% unless user_signed_in? %>
+ ok
+ <% end %>
 </div>
- 
+
 <div id="D">
  フッター
 </div>
