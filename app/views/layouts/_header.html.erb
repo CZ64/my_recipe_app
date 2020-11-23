@@ -1,0 +1,39 @@
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<header>
+  <div class="header-links">
+    <div class="logo">
+      <%= link_to 'My Recipe', root_path %>
+    </div>
+  </div>
+
+  <div class="header-search">
+    <form method="get" action="#" class="search_container">
+      <input type="text" size="25" placeholder="料理名・材料名">
+      <input type="submit" value="&#xf002">
+    </form>
+  </div>
+
+  <div class="header-btn-items">
+    <div class="header-btn">
+      <%= link_to new_user_session_path do %>
+        <span class="fas fa-sign-in-alt icon"></span>
+        <span class="btn-text">ログイン</span>
+      <% end %>
+    </div>
+
+    <div class="header-btn">
+      <%= link_to new_user_registration_path do %>
+        <span class="fas fa-user icon"></span>
+        <span class="btn-text">ユーザー登録</span>
+      <% end %>
+    </div>
+
+    <div class="header-btn">
+      <%= link_to new_user_registration_path do %>
+        <span class="fas fa-book-reader icon"></span>
+        <span class="btn-text">初めての方へ</span>
+      <% end %>
+    </div>
+  </div>
+</header>
