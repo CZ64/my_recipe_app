@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_134407) do
+ActiveRecord::Schema.define(version: 2020_11_23_095508) do
+
+  create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+    t.string "title"
+    t.string "image"
+    t.string "description"
+    t.integer "servings_for"
+    t.integer "cooking_time"
+    t.integer "weekly_favorites", default: 0
+    t.integer "total_favorites", default: 0
+    t.integer "user_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_recipes_on_title", unique: true
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
