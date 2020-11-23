@@ -20,6 +20,10 @@
 // common
 a {
   text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: #e7336e;
 }
 
 header {
@@ -48,10 +52,6 @@ header {
       white-space: nowrap;
       font-size: 45px;
       font-family: 'Teko', cursive;
-
-      a {
-        color: black;
-      }
     }
   }
   .header-search {
@@ -113,8 +113,12 @@ header {
         display: block;
         text-align: center;
         padding: 0px 5px;
-        color: black;
       }
+
+      a:hover {
+        color: #e7336e;
+      }
+
       .icon {
         display: block;
         margin: 2px auto 0px;
@@ -124,7 +128,11 @@ header {
       .btn-text{
         font-size: 11px;
       }
+
     }
+  }
+  .dropdown:hover>.dropdown-menu {
+    display: block;
   }
 }
 

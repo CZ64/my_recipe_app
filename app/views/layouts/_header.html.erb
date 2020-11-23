@@ -1,5 +1,6 @@
 
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
 <header>
   <div class="header-links">
     <div class="logo">
@@ -15,25 +16,53 @@
   </div>
 
   <div class="header-btn-items">
-    <div class="header-btn">
-      <%= link_to new_user_session_path do %>
-        <span class="fas fa-sign-in-alt icon"></span>
-        <span class="btn-text">ログイン</span>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
 
-    <div class="header-btn">
-      <%= link_to new_user_registration_path do %>
-        <span class="fas fa-user icon"></span>
-        <span class="btn-text">ユーザー登録</span>
-      <% end %>
-    </div>
+      <div class="header-btn">
+        <%= link_to new_user_session_path, class: 'btn' do %>
+          <span class="fas fa-edit icon"></span>
+          <span class="btn-text">レシピ投稿</span>
+        <% end %>
+      </div>
 
-    <div class="header-btn">
-      <%= link_to new_user_registration_path do %>
-        <span class="fas fa-book-reader icon"></span>
-        <span class="btn-text">初めての方へ</span>
-      <% end %>
-    </div>
+      <div class="dropdown header-btn">
+        <a class="btn" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+            <span class="fas fa-user icon"></span>
+            <span class="btn-text"><%= current_user.name %></span>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, "data-confirm" => "本当にログアウトしますか？", class: 'dropdown-item' %>
+        </div>
+      </div>
+
+    <% else %>
+
+      <div class="header-btn">
+        <%= link_to new_user_session_path, class: 'btn' do %>
+          <span class="fas fa-sign-in-alt icon"></span>
+          <span class="btn-text">ログイン</span>
+        <% end %>
+      </div>
+
+      <div class="header-btn">
+        <%= link_to new_user_registration_path, class: 'btn' do %>
+          <span class="fas fa-user icon"></span>
+          <span class="btn-text">ユーザー登録</span>
+        <% end %>
+      </div>
+
+      <div class="header-btn">
+        <%= link_to new_user_registration_path, class: 'btn' do %>
+          <span class="fas fa-book-reader icon"></span>
+          <span class="btn-text">初めての方へ</span>
+        <% end %>
+      </div>
+
+    <% end %>
   </div>
 </header>
