@@ -1,0 +1,33 @@
+
+<h2>一覧</h2>
+<table class="table">
+  <thead class="thead-lignt">
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>user_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.id %></td>
+        <td><%= category.name %></td>
+        <td><%= category.user_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h2>追加</h2>
+<%= form_for @category do |f| %>
+  <div class="field">
+      <%= f.label :name, "リスト名" %><br />
+      <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+      <%= f.submit '作成' %>
+  </div>
+<% end %>

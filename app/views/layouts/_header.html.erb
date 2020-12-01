@@ -10,7 +10,7 @@
 
   <div class="header-search">
     <form method="get" action="#" class="search_container">
-      <input type="text" size="25" placeholder="料理名・材料名">
+      <input type="text" size="25" placeholder="料理名・食材名">
       <input type="submit" value="&#xf002">
     </form>
   </div>
@@ -19,7 +19,7 @@
     <% if user_signed_in? %>
 
       <div class="header-btn">
-        <%= link_to new_user_session_path, class: 'btn' do %>
+        <%= link_to new_recipe_path, class: 'btn' do %>
           <span class="fas fa-edit icon"></span>
           <span class="btn-text">レシピ投稿</span>
         <% end %>
@@ -32,9 +32,9 @@
         </a>
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <%= link_to '材料一覧', ingredients_path, class: 'dropdown-item' %>
+          <%= link_to 'レシピ一覧', recipes_path, class: 'dropdown-item' %>
+          <%= link_to 'カテゴリー', categories_path, class: 'dropdown-item' %>
           <div class="dropdown-divider"></div>
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, "data-confirm" => "本当にログアウトしますか？", class: 'dropdown-item' %>
         </div>
