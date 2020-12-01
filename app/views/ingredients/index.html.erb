@@ -1,0 +1,92 @@
+
+<div class="accordion" id="accordion-4">
+  <div class="card">
+    <div class="card-header" id="header-4a">
+      <button class="btn btn-link" type="button"
+          data-toggle="collapse" data-target="#card-4a"
+          aria-expanded="true" aria-controls="card-4a">
+        単位
+      </button>
+    </div>
+    <div id="card-4a" class="collapse"
+        aria-labelledby="header-4a" data-parent="#accordion-4">
+      <div class="card-body">
+        <%= form_for @unit do |f| %>
+          <div class="form-row align-items-center">
+            <div class="col-auto">
+              <%= f.text_field :name, class: 'form-control mb-2' %>
+            </div>
+
+            <div class="col-auto">
+              <%= f.submit '作成', class: 'btn btn-primary mb-2' %>
+            </div>
+          </div>
+        <% end %>
+
+        <hr>
+
+        <table class="table">
+          <thead class="thead-lignt">
+            <tr>
+              <th>id</th>
+              <th>unit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @units.each do |unit| %>
+              <tr>
+                <td><%= unit.id %></td>
+                <td><%= unit.name %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="header-4b">
+      <button class="btn btn-link" type="button"
+          data-toggle="collapse" data-target="#card-4b"
+          aria-expanded="false" aria-controls="card-4b">
+        デフォルト材料
+      </button>
+    </div>
+    <div id="card-4b" class="collapse show"
+        aria-labelledby="header-4b" data-parent="#accordion-4">
+      <div class="card-body">
+        <%= form_for @ingredient do |f| %>
+          <div class="form-row align-items-center">
+            <div class="col-auto">
+              <%= f.text_field :name, class: 'form-control mb-2' %>
+            </div>
+
+            <div class="col-auto">
+              <%= f.submit '作成', class: 'btn btn-primary mb-2' %>
+            </div>
+          </div>
+        <% end %>
+
+        <hr>
+
+        <table class="table">
+          <thead class="thead-lignt">
+            <tr>
+              <th>id</th>
+              <th>材料名</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @ingredients.each do |ingredient| %>
+              <tr>
+                <td><%= ingredient.id %></td>
+                <td><%= ingredient.name %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

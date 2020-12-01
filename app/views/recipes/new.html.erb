@@ -1,1 +1,83 @@
-new recipe
+
+<div class="recipe-new rounded">
+  <h2>レシピ作成</h2>
+  <hr>
+  <%= form_for @recipe do |recipe| %>
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <%= recipe.label :title, "タイトル" %><br />
+        <%= recipe.text_field :title, class: 'form-control', value: '豚キムチ' %>
+        <%#= recipe.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="form-group col-sm-3">
+        <%= recipe.label :category_id, "カテゴリー" %><br />
+        <%= recipe.collection_select :category_id, @categories, :id, :name %>
+      </div>
+
+      <div class="form-group col-sm-2">
+        <%= recipe.label :cooking_time, "調理時間（分）" %><br />
+        <%= recipe.number_field :cooking_time, class: 'form-control', value: 40 %>
+        <%#= recipe.number_field :cooking_time, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <div class="description-form">
+          <%= recipe.label :description, "説明" %><br />
+          <%= recipe.text_area :description, class: 'form-control', value: "キムチにコチュジャンを加え、さらにパンチのある味わいに。\nもやし、にらがたっぷり入ってお腹も大満足。" %><br />
+          <%#= recipe.text_area :description, class: 'form-control' %><br />
+        </div>
+
+        <div class="image-form">
+          <%= recipe.label :image, "料理の写真" %><br />
+          <label class="image-label" for="recipe-image">
+            <div class="img-box">
+              <img class="preview-recipe-image" >
+            </div>
+          </label>
+          <%= recipe.file_field :image, id: 'recipe-image'%>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-6">
+        <div class="form-inline servings-for-form">
+          <%= recipe.text_field :servings_for, class: 'form-control', value: 1 %>
+          <%#= recipe.text_field :servings_for, class: 'form-control' %>
+          <b>人分</b>
+        </div>
+        <%= render 'recipe_ingredients_fields', f: recipe %>
+      </div>
+    </div>
+
+    <h4>作り方</h4>
+    <hr>
+    <div class="row">
+      <div class="form-group col-sm-10">
+        <%= render 'recipe_procedures_fields', f: recipe %>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row submit-row d-flex justify-content-end">
+      <div class="actions">
+        <%= recipe.submit 'レシピ作成', class: 'btn btn-success' %>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+
+
+<script>
+  $(document).on('change', 'input[type=file]', function (e) {
+    var str = $(this).siblings('.image-label');
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        $(str).find('.preview-recipe-image').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  });
+</script>

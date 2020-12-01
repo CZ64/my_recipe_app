@@ -69,7 +69,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 # rspec related
 gem 'spring-commands-rspec'
-
+# use jquery as the JavaScript library
+gem 'jquery-rails'
+# dynamic forms
+gem 'nested_form_fields'
+# image upload
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
 
 
 
