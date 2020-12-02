@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2020_11_27_220412) do
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["title"], name: "index_recipes_on_title", unique: true
   end
 
   create_table "units", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
