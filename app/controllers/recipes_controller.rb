@@ -12,7 +12,12 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
-    # TODO: 材料id
+
+    # 既存の材料idか、新規作成して材料idを設定する
+    @recipe.recipe_ingredients.each { |ingredient|
+      ingredient.ingredient_id = Ingredient.get_id(ingredient.name, true)
+    }
+
     if @recipe.save
       redirect_to recipes_path
     else
