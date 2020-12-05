@@ -9,10 +9,10 @@
 # rails db:seed
 
 # User
-User.create(  name: 'fuchida',
-              email: 'sample@gmail.com',
-              # TODO: password設定する
-              encrypted_password: '')
+# User.create(  name: 'fuchida',
+#               email: 'sample@gmail.com',
+#               # TODO: password設定する
+#               encrypted_password: '111111')
 
 # Unit
 ['g', 'ml'].each { |unit|
