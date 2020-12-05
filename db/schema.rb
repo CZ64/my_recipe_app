@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_27_220412) do
+ActiveRecord::Schema.define(version: 2020_12_03_054647) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 2020_11_27_220412) do
 
   create_table "units", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+    t.string "quantity"
+    t.date "expiration_date"
+    t.integer "user_id"
+    t.integer "ingredient_id"
+    t.integer "unit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

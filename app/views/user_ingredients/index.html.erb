@@ -1,0 +1,44 @@
+<h2>材料追加</h2>
+
+<%= form_for @user_ingredient, html: { class: "" } do |f| %>
+
+  <table class="table">
+    <tr>
+      <th>材料名</th>
+      <th>量</th>
+      <th>単位</th>
+      <th>消費期限</th>
+    </tr>
+    <tr>
+      <td><%= f.text_field :name, class: 'form-control' %></td>
+      <td><%= f.text_field :quantity, class: 'form-control' %></td>
+      <td><%= f.collection_select :unit_id, @units, :id, :name,
+        {prompt: false}, {class: "form-control"} %></td>
+      <td><%= f.date_field :expiration_date, class: 'form-control' %></td>
+    </tr>
+  </table>
+  <div class="actions">
+      <%= f.submit '追加', class: "btn btn-dark" %>
+  </div>
+<% end %>
+
+<table class="table">
+  <thead class="thead-lignt">
+    <tr>
+      <th>材料名</th>
+      <th>量</th>
+      <th>単位</th>
+      <th>消費期限</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_ingredients.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient.ingredient.name %></td>
+        <td><%= ingredient.quantity %></td>
+        <td><%= ingredient.unit.name %></td>
+        <td><%= ingredient.expiration_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

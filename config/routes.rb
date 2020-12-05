@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :categories # index, create
   resources :units
   resources :ingredients
+  resources :user_ingredients
 
 end
