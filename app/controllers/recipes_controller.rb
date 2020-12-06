@@ -31,6 +31,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @menu = current_user.menus.build
   end
 
   private

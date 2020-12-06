@@ -1,0 +1,18 @@
+<h2>今日の献立</h2>
+
+<table class="table">
+  <thead class="thead-lignt">
+    <tr>
+      <th>レシピ名</th>
+      <th>人数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @menus.each do |menu| %>
+      <tr>
+        <td><%= menu.recipe.title %></td>
+        <td><%= menu.servings_for %>人分</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
