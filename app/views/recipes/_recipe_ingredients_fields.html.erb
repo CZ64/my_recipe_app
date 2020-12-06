@@ -14,11 +14,9 @@
         <%= recipe_ingredient.text_field :name, class: 'form-control' %></td>
       <td class="td-quantity">
         <%= recipe_ingredient.text_field :quantity, class: 'form-control' %></td>
-      <td>
+      <td class="td-unit">
         <%= recipe_ingredient.collection_select :unit_id, @units, :id, :name,
             {prompt: false}, {class: "form-control"} %>
-        ,
-        {prompt: ""}, {class: "form-control input-sm"}
         <%#= recipe_ingredient.number_field :gram,     class: 'form-control' %></td>
       <td class="td-delete">
         <%= recipe_ingredient.remove_nested_fields_link '×', class: 'btn btn-outline-danger', role: 'button' %></td>
