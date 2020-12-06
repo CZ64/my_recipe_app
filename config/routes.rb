@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: [:show, :edit, :update] do
+    get :menus, on: :collection
     get :favorite_recipes, on: :collection
   end
 
@@ -18,5 +19,6 @@ Rails.application.routes.draw do
   resources :units
   resources :ingredients
   resources :user_ingredients
+  resources :menus, only: [:create, :destroy]
 
 end

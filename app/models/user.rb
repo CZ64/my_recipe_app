@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :recipes,          dependent: :destroy
   has_many :user_ingredients, dependent: :destroy
+  has_many :menus,             dependent: :destroy
   has_many :favorite_recipes, dependent: :destroy
   has_many :recipes_through_favorite, through: :favorite_recipes, source: :recipe
 

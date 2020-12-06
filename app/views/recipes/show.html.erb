@@ -22,7 +22,11 @@
       </div>
     <% end %>
     <div class="my-box w-25">
-
+      <%= form_for @menu do |menu| %>
+        <%= menu.hidden_field :recipe_id, value: @recipe.id %>
+        <%= menu.select :servings_for, [['1',1],['2',2],['3',3],['4',4],['5',5]], class: "form-control" %> 人分
+        <%= menu.submit '作る', class: "btn btn-outline-warning" %>
+      <% end %>
     </div>
   </div>
 
