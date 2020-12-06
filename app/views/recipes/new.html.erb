@@ -11,7 +11,8 @@
 
       <div class="form-group col-sm-3">
         <%= recipe.label :category_id, "カテゴリー" %><br />
-        <%= recipe.collection_select :category_id, @categories, :id, :name %>
+        <%= recipe.collection_select :category_id, @categories, :id, :name,
+            {prompt: false}, {class: "form-control"} %>
       </div>
 
       <div class="form-group col-sm-2">

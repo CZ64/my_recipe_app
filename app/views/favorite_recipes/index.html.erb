@@ -1,0 +1,30 @@
+
+<div class="recipe-index">
+  <h2>お気に入りレシピ一覧</h2>
+  <div class="row row-cols-1 row-cols-md-3 recipe-table">
+    <table class="table">
+  <% @favorite_recipes.each do |recipe| %>
+    <tr>
+      <td class="row">
+        <div class="col-md-4 recipe-img">
+          <%= attachment_image_tag recipe, :image %>
+
+        </div>
+        <div class="col-md-8 recipe-info">
+          <div class="title">
+            <%= link_to recipe.title, recipe %>
+          </div>
+          <div class="description">
+            <%= recipe.description %>
+          </div>
+          <div class="details">
+            <%= "#{recipe.user.name}  /  調理時間 #{recipe.cooking_time.to_s} 分" %>
+          </div>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>
+  </div>
+</div>
+

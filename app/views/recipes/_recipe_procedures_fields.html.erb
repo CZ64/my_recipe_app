@@ -7,7 +7,7 @@
        <th></th>
     </tr>
     <%= f.nested_fields_for :recipe_procedures, wrapper_tag: :tr do |procedure| %>
-      <td><%= procedure.text_area   :instruction,     class: 'form-control', value: 'ok' %></td>
+      <td><%= procedure.text_area   :instruction,     class: 'form-control' %></td>
       <td>
         <%= procedure.label :image, class: 'procedure-image-label' do %>
           <div class="procedure-img-box">
