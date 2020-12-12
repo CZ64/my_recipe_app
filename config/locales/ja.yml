@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      user: イベント
+    attributes:
+      user:
+        name: ユーザー名
+        email: メールアドレス
+        servings_for: 人数分
+  errors:
+    messages:
+      not_saved: 以下の箇所に誤りがあります
