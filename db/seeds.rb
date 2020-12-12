@@ -9,17 +9,19 @@
 # rails db:seed
 
 # User
-# User.create(  name: 'fuchida',
-#               email: 'sample@gmail.com',
-#               # TODO: password設定する
-#               encrypted_password: '111111')
+User.create(
+    name: 'fuchida',
+    email: 'sample@gmail.com',
+    encrypted_password: 'password',
+    created_at: Time.now
+    )
 
-# Unit
-# ['g', 'ml'].each { |unit|
-#   Unit.create(name: unit)
-# }
+Unit
+['g', 'ml'].each { |unit|
+  Unit.create(name: unit)
+}
 
-# Category
+Category
 [
   '肉のおかず',
   '魚介のおかず',

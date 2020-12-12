@@ -76,6 +76,7 @@ gem 'nested_form_fields'
 # image upload
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
-
-
+# japanese validation message
+gem 'rails-i18n'
+gem 'devise-i18n'
 

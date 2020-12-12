@@ -3,7 +3,6 @@
   <h1>ログイン</h1>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="inner-wrap">
       <%= f.label :email do %>メールアドレス
