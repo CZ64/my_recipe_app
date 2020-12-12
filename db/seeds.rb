@@ -15,11 +15,21 @@
 #               encrypted_password: '111111')
 
 # Unit
-['g', 'ml'].each { |unit|
-  Unit.create(name: unit)
-}
+# ['g', 'ml'].each { |unit|
+#   Unit.create(name: unit)
+# }
 
 # Category
-['鍋料理'].each { |category|
+[
+  '肉のおかず',
+  '魚介のおかず',
+  '野菜のおかず',
+  'ごはんもの',
+  '麺',
+  'パスタ・グラタン',
+  'スープ・汁物',
+  'サラダ',
+  'お菓子'
+].each { |category|
   Category.create(name: category)
 }

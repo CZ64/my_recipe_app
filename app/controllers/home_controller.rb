@@ -1,7 +1,12 @@
 class HomeController < ApplicationController
+
   def index
-    # TODO: 全カテゴリー表示
+    @categories = Category.includes(:recipes).
+      sort {|a,b| b.recipes.size <=> a.recipes.size}
     # TODO: ランキング表示
-    @users = User.all
+    @weekly_recipes  = Recipe.get_ranking_from(Time.current.beginning_of_week)
+    @monthly_recipes = Recipe.get_ranking_from(Time.current.beginning_of_month)
+    @total_recipes   = Recipe.get_ranking_from
+
   end
 end

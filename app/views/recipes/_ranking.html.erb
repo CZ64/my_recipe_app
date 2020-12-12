@@ -1,0 +1,14 @@
+
+<ul class="recipe-list">
+  <% recipes.each.with_index(1) do |recipe, rank| %>
+    <li class="li-item">
+      <div class="li-rank"><%= rank %></div>
+      <figure class="li-img-area"><%= attachment_image_tag recipe, :image %></figure>
+      <div class="li-content">
+        <p class="li-title"><%= recipe.title %></p>
+        <p class="li-description"><%= recipe.description %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>
+<caption>2020/12/07(月) ~ 2020/12/13(日)</caption>
