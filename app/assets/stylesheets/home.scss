@@ -2,30 +2,171 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
 body {
-width:980px;
-margin:0 auto;
+  width: 94%;
+  margin:0 auto;
 }
 
-#B{
-width:250px;
-min-height:500px;
-height:auto;
-background-color:#f2f2f2;
-float:left;
-margin-top:10px;
+.container {
+  width: 94%;
+  margin: 0 auto;
 }
-#C { 
-margin-left:260px;
-width:720px;
-min-height:500px;
-height:auto;
-background-color:#f2f2f2;
-margin-top:10px;
+
+.slide {
+  width: 100%;
+  height: 340px;
+  background: black;
 }
-#D { 
-margin-top:10px;
-width:980px;
-height:100px;
-background-color:#f2f2f2;
+
+.sidebar-content {
+  // background-color: #fff;
+  background-color: #f7f5f4;
+  border: none;
+  box-shadow: rgba(88, 88, 88, 0.3) 0px 1px 3px 0px;
+  margin: 10px 5px;
+
+  .table th {
+    border-top: none;
+    color: #666;
+    padding-top: 20px;
+  }
 }
+
+.main-content {
+  // background-color: #fff;
+  background-color: #f7f5f4;
+  margin: 10px 8px;
+  padding-top: 10px;
+  box-shadow: rgba(88, 88, 88, 0.3) 0px 1px 3px 0px;
+
+  h2{
+    color: #666;
+    font-family: "Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  }
+
+  .tabs{
+    width: 94%;
+    margin: 10px auto;
+    position: relative;
+
+    .tab-buttons {
+      span{
+        font: 400 14px;
+        color: #333;
+        cursor: pointer;
+        display: block;
+        width: 33.3%;
+        float: left;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+      }
+      .content2 {
+        border-left: 0.1px solid #ddd;
+        border-right: 0.1px solid #ddd;
+      }
+    }
+
+    .tab-content{
+      width: 99.9%;
+      border-bottom: 3px solid #ddd;
+      padding: 15px;
+      display:inline-block;
+      font: 400 13px;
+      color: #333;
+    }
+
+    #lamp{
+      width:23.3%;
+      height:2px;
+      background:#333;
+      display:block;
+      position:absolute;
+      top:40px;
+      transition: all .3s ease-in;
+      -o-transition: all .3s ease-in;
+      -webkit-transition: all .3s ease-in;
+      -moz-transition: all .3s ease-in;
+    }
+    #lamp.content1{
+      left: 5%;
+    }
+    #lamp.content2{
+      left: 38.3%;
+    }
+    #lamp.content3{
+      left: 71.6%;
+    }
+  }
+}
+
+.recipe-list {
+  margin: 15px;
+  padding: 0 10px;
+  list-style: none;
+
+  .li-item {
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 2px 3px rgba(0,0,0,.16);
+    text-align: -webkit-match-parent;
+    display: flex;
+    margin-bottom: 15px;
+    padding: 10px;
+
+    .li-rank {
+      width: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .li-img-area {
+      position: relative;
+      flex: 0 0 180px;
+      margin: 0;
+      margin-left: 10px;
+      width: 180px;
+      height: 150px;
+      overflow: hidden;
+
+      img {
+        max-width: none;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        // max-width: 96%;
+        // max-height: 96%;
+        // display: block;
+        // text-align: center;
+        // position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // -ms-transform: translate(-50%,-50%);
+        // -webkit-transform : translate(-50%,-50%);
+        // transform : translate(-50%,-50%);
+      }
+    }
+    .li-content {
+      padding: 10px 14px 0;
+      margin-left: 10px;
+      flex: 1 1 auto;
+      color: #666;
+      font-family: "Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+
+      .li-title {
+        font-size: 1.125rem;
+        font-weight: 400;
+      }
+      .li-description {
+        margin: 5px 0 0 5px;
+        font-size: .875rem;
+      }
+    }
+  }
+}
+
+

@@ -1,23 +1,94 @@
 
+<div class="container">
+  <div class="row">
+    <div id="example-3" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#example-3" data-slide-to="0" class="active"></li>
+        <li data-target="#example-3" data-slide-to="1"></li>
+        <li data-target="#example-3" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
 
-<% @users.each do |user| %>
-  <%= user.name %>
-<% end %>
+        <div class="carousel-item active">
+          キッチン画像
+          <!-- <img src="slide1.png" alt="First slide">
+          <div class="jumbotron">
+            <h1 class="display-4">毎日の料理のお供に</h1>
+            <p class="lead">
+              食べたい料理のレシピを調べたり、<br>
+              調べたレシピの材料をリストで見ながら買い物したり、<br>
+              家にある材料で作れるレシピを見つけられれます。
+            </p>
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          </div> -->
+        </div>
 
-<div id="B">
- カテゴリー
- <% if user_signed_in? %>
-  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, "data-confirm" => "本当にログアウトしますか？", class: 'dropdown-item' %>
-  <% end %>
+        <div class="carousel-item">
+          Second slide
+        </div>
+
+        <div class="carousel-item">
+          Third slide
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3 sidebar-content">
+      <table class="table">
+        <tr><th>カテゴリー</th></tr>
+        <% @categories.each do |category| %>
+          <tr>
+            <td>
+              <%= category.name %>
+              <small class="text-muted">(<%= category.recipes.size %>品)</small>
+            </td>
+        <% end %>
+      </table>
+    </div>
+
+    <div class="col main-content">
+      <h2>レシピランキング</h2>
+      <div class='tabs'>
+
+        <div class='tab-buttons'>
+          <span class='weekly'>週間</span>
+          <span class='monthly'>月間</span>
+          <span class='total'>累計</span>
+          <div id='lamp' class='weekly'></div>
+        </div>
+
+        <div class='tab-content'>
+          <div class='weekly'>
+            <%= render 'recipes/ranking', recipes: @weekly_recipes %>
+          </div>
+          <div class='monthly'>
+            <%= render 'recipes/ranking', recipes: @monthly_recipes %>
+          </div>
+          <div class='total'>
+            <%= render 'recipes/ranking', recipes: @total_recipes %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div id="C">
- ランキング
- <% unless user_signed_in? %>
- ok
- <% end %>
-</div>
-
-<div id="D">
- フッター
-</div>
+<script type="text/javascript">
+  $('.tab-content>div').hide();
+  $('.tab-content>div').first().slideDown();
+  $('.tab-buttons span').click(function(){
+    var thisclass=$(this).attr('class');
+    $('#lamp').removeClass().addClass('#lamp').addClass(thisclass);
+    $('.tab-content>div').each(function(){
+      if($(this).hasClass(thisclass)){
+        $(this).fadeIn(800);
+      }
+      else{
+        $(this).hide();
+      }
+    });
+  });
+</script>
