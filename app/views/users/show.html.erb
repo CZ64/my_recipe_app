@@ -1,0 +1,53 @@
+
+
+<div class="user-page">
+  <h3>登録情報</h3>
+  <hr>
+  <div class="container-fuild border">
+    <div class="row">
+      <div class="col-3">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active" id="tab-menu-1"
+              data-toggle="list" href="#tab-content-1"
+              role="tab" aria-controls="tab-content-1">プロフィール</a>
+          <a class="list-group-item list-group-item-action" id="tab-menu-2"
+              data-toggle="list" href="#tab-content-2"
+              role="tab" aria-controls="tab-content-2">レシピ設定</a>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="tab-content-1"
+              role="tabpanel" aria-labelledby="tab-menu-1">
+            <table class="table">
+              <%= form_for @user do |f| %>
+                <%= render 'layouts/error_messages', model: f.object %>
+                <tr><th>ユーザー名</th><td><%= f.text_field :name, class: 'form-control' %></td></tr>
+                <tr><th>メールアドレス</th><td><%= f.email_field :email, class: 'form-control' %></td></tr>
+                <caption><%= f.submit "更新", class: 'btn btn-sm btn-outline-primary' %></caption>
+              <% end %>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="tab-content-2"
+              role="tabpanel" aria-labelledby="tab-menu-2">
+              <table class="table">
+                <tr>
+                  <th>デフォルト人数分</th>
+                  <td>
+                    <%= form_tag user_update_servings_for_path(current_user), method: :get do %>
+                      <div class="input-group mb-2">
+                        <%= number_field_tag :servings_for, params[:servings_for], value: current_user.servings_for, class: 'form-control' %>
+                          <div class="input-group-append">
+                            <%= submit_tag '更新', class: 'btn btn-outline-secondary' %>
+                          </div>
+                      </div>
+                    <% end %>
+                  </td>
+                </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
