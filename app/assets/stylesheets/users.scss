@@ -1,0 +1,13 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#error_explanation li {
+  color: red;
+}
+
+// show
+.user-page{
+  width: 70%;
+  margin: 40px auto 10px;
+}

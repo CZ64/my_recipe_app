@@ -7,9 +7,19 @@ Rails.application.routes.draw do
     sessions:      'users/sessions'
   }
 
-  resources :recipes    # new
+  resources :users, only: [:show, :edit, :update] do
+    get :menus, on: :collection
+    get :favorite_recipes, on: :collection
+    get :update_servings_for
+  end
+
+  resources :recipes do
+    resource :favorite_recipes, only: [:create, :destroy]
+  end
   resources :categories # index, create
   resources :units
   resources :ingredients
+  resources :user_ingredients
+  resources :menus, only: [:create, :destroy]
 
 end

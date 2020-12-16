@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
     }
 
     if @recipe.save
-      redirect_to recipes_path
+      redirect_to recipes_path, success: '投稿に成功しました！'
     else
       render 'new'
     end
@@ -31,6 +31,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @menu = current_user.menus.build
   end
 
   private
