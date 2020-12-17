@@ -1,5 +1,4 @@
 class UnitsController < ApplicationController
-
   def create
     @unit = Unit.new(unit_params)
     @unit.save
@@ -8,7 +7,7 @@ class UnitsController < ApplicationController
 
   private
 
-    def unit_params
-      params.require(:unit).permit(:name)
-    end
+  def unit_params
+    params.require(:unit).permit(:name)
+  end
 end

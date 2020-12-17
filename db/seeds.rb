@@ -10,16 +10,16 @@
 
 # User
 User.create(
-    name: 'fuchida',
-    email: 'sample@gmail.com',
-    encrypted_password: 'password',
-    created_at: Time.now
-    )
+  name: 'fuchida',
+  email: 'sample@gmail.com',
+  encrypted_password: 'password',
+  created_at: Time.now
+)
 
 Unit
-['g', 'ml'].each { |unit|
+%w[g ml].each do |unit|
   Unit.create(name: unit)
-}
+end
 
 Category
 [
@@ -32,6 +32,6 @@ Category
   'スープ・汁物',
   'サラダ',
   'お菓子'
-].each { |category|
+].each do |category|
   Category.create(name: category)
-}
+end

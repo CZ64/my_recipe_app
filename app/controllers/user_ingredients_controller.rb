@@ -1,5 +1,4 @@
 class UserIngredientsController < ApplicationController
-
   def index
     @user_ingredient = UserIngredient.new
     @units = Unit.all
@@ -15,9 +14,9 @@ class UserIngredientsController < ApplicationController
 
   private
 
-    def user_ingredient_params
-      params.require(:user_ingredient).permit(
-        :name, :quantity, :expiration_date, :ingredient_id, :unit_id, :_destroy
-      )
-    end
+  def user_ingredient_params
+    params.require(:user_ingredient).permit(
+      :name, :quantity, :expiration_date, :ingredient_id, :unit_id, :_destroy
+    )
+  end
 end
