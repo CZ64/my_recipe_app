@@ -1,5 +1,4 @@
 class MenusController < ApplicationController
-
   def create
     menu = current_user.menus.build(menu_params)
     menu.save!
@@ -13,7 +12,7 @@ class MenusController < ApplicationController
 
   private
 
-    def menu_params
-      params.require(:menu).permit(:servings_for, :recipe_id)
-    end
+  def menu_params
+    params.require(:menu).permit(:servings_for, :recipe_id)
+  end
 end
