@@ -1,47 +1,58 @@
 
 <div class="recipe-new rounded">
   <h2>レシピ作成</h2>
+  <% if @recipe.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
   <hr>
   <%= form_for @recipe do |recipe| %>
     <div class="row">
-      <div class="form-group col-sm-6">
-        <%= recipe.label :title, "タイトル" %><br />
-        <%= recipe.text_field :title, class: 'form-control' %>
-      </div>
+      <div class="col-sm-5">
+        <div class="form-group">
 
-      <div class="form-group col-sm-3">
-        <%= recipe.label :category_id, "カテゴリー" %><br />
-        <%= recipe.collection_select :category_id, @categories, :id, :name,
-            {prompt: false}, {class: "form-control"} %>
-      </div>
+          <div class="title-field field">
+            <%= recipe.label :title, "タイトル" %><br />
+            <%= recipe.text_field :title, class: 'form-control' %>
+          </div>
 
-      <div class="form-group col-sm-2">
-        <%= recipe.label :cooking_time, "調理時間（分）" %><br />
-        <%= recipe.number_field :cooking_time, class: 'form-control' %>
-      </div>
-    </div>
+          <div class="description-field field">
+            <%= recipe.label :description, "説明" %><br />
+            <%= recipe.text_area :description, class: 'form-control' %><br />
+          </div>
 
-    <div class="row">
-      <div class="form-group col-sm-6">
-        <div class="description-form">
-          <%= recipe.label :description, "説明" %><br />
-          <%= recipe.text_area :description, class: 'form-control' %><br />
+          <div class="category-field field">
+            <%= recipe.label :category_id, "カテゴリー" %><br />
+            <%= recipe.collection_select :category_id, @categories, :id, :name,
+                {prompt: false}, {class: "form-control"} %>
+          </div>
+
+          <div class="cooking-time-field field">
+            <%= recipe.label :cooking_time, "調理時間（分）" %><br />
+            <%= recipe.number_field :cooking_time, class: 'form-control' %>
+          </div>
+
+          <div class="image-field field">
+            <%= recipe.label :image, "料理の写真" %><br />
+            <label class="image-label" for="recipe-image">
+              <div class="img-box">
+                <img class="preview-recipe-image" >
+              </div>
+            </label>
+            <%= recipe.file_field :image, id: 'recipe-image'%>
+          </div>
+
         </div>
-
-        <div class="image-form">
-          <%= recipe.label :image, "料理の写真" %><br />
-          <label class="image-label" for="recipe-image">
-            <div class="img-box">
-              <img class="preview-recipe-image" >
-            </div>
-          </label>
-          <%= recipe.file_field :image, id: 'recipe-image'%>
-        </div>
       </div>
-
-      <div class="form-group col-sm-6">
+      <div class="form-group col-sm-7">
         <div class="form-inline servings-for-form">
-          <%= recipe.text_field :servings_for, class: 'form-control' %>
+          <%= recipe.text_field :servings_for, value: current_user.servings_for, class: 'form-control' %>
           <b>人分</b>
         </div>
         <%= render 'recipe_ingredients_fields', f: recipe %>
@@ -56,6 +67,12 @@
       </div>
     </div>
     <hr>
+
+    <div class="row select-row justify-content-end">
+      <div class="form-group">
+        <%= recipe.select :public_view, {'公開する': 0, '下書き': 1}, {}, class: 'form-control' %>
+      </div>
+    </div>
 
     <div class="row submit-row d-flex justify-content-end">
       <div class="actions">

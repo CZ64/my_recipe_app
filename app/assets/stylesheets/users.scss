@@ -10,4 +10,7 @@
 .user-page{
   width: 70%;
   margin: 40px auto 10px;
+  .table td, .table th {
+    border-top: none;
+  }
 }

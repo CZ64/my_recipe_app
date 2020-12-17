@@ -16,12 +16,12 @@ User.create(
   created_at: Time.now
 )
 
-Unit
+#Unit
 %w[g ml].each do |unit|
   Unit.create(name: unit)
 end
 
-Category
+#Category
 [
   '肉のおかず',
   '魚介のおかず',
