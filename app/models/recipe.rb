@@ -13,6 +13,9 @@ class Recipe < ApplicationRecord
 
   attachment :image
 
+  # validations
+  validates :title,  presence: true, length: { maximum: 10 }
+
   # TODO: 要テスト
   def self.get_ranking_from(from = Time.local(2000))
     Recipe.find(FavoriteRecipe.group(:recipe_id).where('created_at >= ?', from).

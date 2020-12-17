@@ -16,12 +16,12 @@ User.create(
     created_at: Time.now
     )
 
-Unit
+#Unit
 ['g', 'ml'].each { |unit|
   Unit.create(name: unit)
 }
 
-Category
+#Category
 [
   '肉のおかず',
   '魚介のおかず',
@@ -35,3 +35,4 @@ Category
 ].each { |category|
   Category.create(name: category)
 }
+

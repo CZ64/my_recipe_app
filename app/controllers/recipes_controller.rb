@@ -21,6 +21,8 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to recipes_path, success: '投稿に成功しました！'
     else
+      @categories = Category.all
+      @units = Unit.all
       render 'new'
     end
   end
@@ -38,7 +40,7 @@ class RecipesController < ApplicationController
 
     def recipe_params
       params.require(:recipe).permit(
-        :title, :image, :description, :cooking_time, :servings_for, :category_id,
+        :title, :image, :description, :cooking_time, :servings_for, :public_view, :category_id,
         recipe_procedures_attributes: [:id, :instruction, :image, :_destroy],
         recipe_ingredients_attributes: [:id, :quantity, :gram, :ingredient_id, :unit_id, :_destroy, :name]
         )

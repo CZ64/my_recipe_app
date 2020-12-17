@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_12_06_062347) do
   create_table "recipe_ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "quantity"
     t.integer "gram"
-    t.integer "order_id"
+    t.integer "sort_id"
     t.integer "recipe_id"
     t.integer "ingredient_id"
     t.integer "unit_id"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_12_06_062347) do
   create_table "recipe_procedures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "instruction"
     t.string "image_id"
-    t.integer "order_id"
+    t.integer "sort_id"
     t.integer "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2020_12_06_062347) do
     t.string "description"
     t.integer "servings_for"
     t.integer "cooking_time"
-    t.integer "draft", default: 0
+    t.integer "public_view", default: 0
     t.integer "user_id"
     t.integer "category_id"
     t.datetime "created_at", null: false

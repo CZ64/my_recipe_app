@@ -7,7 +7,7 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.string :description
       t.integer :servings_for
       t.integer :cooking_time
-      t.integer :draft,             default: 0  # 0:下書き, 1:公開
+      t.integer :public_view,             default: 0  # 0:公開, 1:下書き
       t.integer :user_id
       t.integer :category_id
 
