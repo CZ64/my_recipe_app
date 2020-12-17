@@ -2,11 +2,11 @@
 
 class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
-    create_table :users, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
+    create_table :users, options: 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       ## Database authenticatable
-      t.string  :name,               null: false, default: ""
-      t.string  :email,              null: false, default: ""
-      t.string  :encrypted_password, null: false, default: ""
+      t.string  :name,               null: false, default: ''
+      t.string  :email,              null: false, default: ''
+      t.string  :encrypted_password, null: false, default: ''
       t.integer :servings_for, default: 1 # menuに追加する際のデフォルト人数
 
       ## Recoverable

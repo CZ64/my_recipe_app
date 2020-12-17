@@ -1,5 +1,4 @@
 class Recipe < ApplicationRecord
-
   belongs_to :user
   belongs_to :category
 
@@ -18,12 +17,11 @@ class Recipe < ApplicationRecord
 
   # TODO: 要テスト
   def self.get_ranking_from(from = Time.local(2000))
-    Recipe.find(FavoriteRecipe.group(:recipe_id).where('created_at >= ?', from).
-      order('count(recipe_id) desc').limit(10).pluck(:recipe_id))
+    Recipe.find(FavoriteRecipe.group(:recipe_id).where('created_at >= ?', from)
+      .order('count(recipe_id) desc').limit(10).pluck(:recipe_id))
   end
 
   def favorited_by?(user)
     favorite_recipes.where(user_id: user.id).exists?
   end
-
 end

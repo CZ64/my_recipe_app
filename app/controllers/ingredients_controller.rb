@@ -1,5 +1,4 @@
 class IngredientsController < ApplicationController
-
   def index
     @unit  = Unit.new
     @units = Unit.all
@@ -16,8 +15,7 @@ class IngredientsController < ApplicationController
 
   private
 
-    def ingredient_params
-      params.require(:ingredient).permit(:name, :unit_id)
-    end
-
+  def ingredient_params
+    params.require(:ingredient).permit(:name, :unit_id)
+  end
 end

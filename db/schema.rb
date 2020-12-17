@@ -10,103 +10,105 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_062347) do
-
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+ActiveRecord::Schema.define(version: 20_201_206_062_347) do
+  create_table 'categories', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "favorite_recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'favorite_recipes', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC',
+                                   force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'recipe_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'ingredients', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.integer "servings_for"
-    t.integer "user_id"
-    t.integer "recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'menus', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC', force: :cascade do |t|
+    t.integer 'servings_for'
+    t.integer 'user_id'
+    t.integer 'recipe_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "recipe_ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "quantity"
-    t.integer "gram"
-    t.integer "sort_id"
-    t.integer "recipe_id"
-    t.integer "ingredient_id"
-    t.integer "unit_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'recipe_ingredients', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC',
+                                     force: :cascade do |t|
+    t.string 'quantity'
+    t.integer 'gram'
+    t.integer 'order_id'
+    t.integer 'recipe_id'
+    t.integer 'ingredient_id'
+    t.integer 'unit_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "recipe_procedures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "instruction"
-    t.string "image_id"
-    t.integer "sort_id"
-    t.integer "recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'recipe_procedures', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC',
+                                    force: :cascade do |t|
+    t.string 'instruction'
+    t.string 'image_id'
+    t.integer 'order_id'
+    t.integer 'recipe_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "title"
-    t.string "image_id"
-    t.string "description"
-    t.integer "servings_for"
-    t.integer "cooking_time"
-    t.integer "public_view", default: 0
-    t.integer "user_id"
-    t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'recipes', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC', force: :cascade do |t|
+    t.string 'title'
+    t.string 'image_id'
+    t.string 'description'
+    t.integer 'servings_for'
+    t.integer 'cooking_time'
+    t.integer 'draft', default: 0
+    t.integer 'user_id'
+    t.integer 'category_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "units", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'units', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "user_ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "quantity"
-    t.date "expiration_date"
-    t.integer "user_id"
-    t.integer "ingredient_id"
-    t.integer "unit_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'user_ingredients', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC',
+                                   force: :cascade do |t|
+    t.string 'quantity'
+    t.date 'expiration_date'
+    t.integer 'user_id'
+    t.integer 'ingredient_id'
+    t.integer 'unit_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.integer "servings_for", default: 1
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["name"], name: "index_users_on_name", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table 'users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC', force: :cascade do |t|
+    t.string 'name', default: '', null: false
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.integer 'servings_for', default: 1
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.integer 'sign_in_count', default: 0, null: false
+    t.datetime 'current_sign_in_at'
+    t.datetime 'last_sign_in_at'
+    t.string 'current_sign_in_ip'
+    t.string 'last_sign_in_ip'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['name'], name: 'index_users_on_name', unique: true
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
-
 end

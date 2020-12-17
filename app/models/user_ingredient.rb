@@ -1,5 +1,4 @@
 class UserIngredient < ApplicationRecord
-
   attr_accessor :name
 
   belongs_to :user

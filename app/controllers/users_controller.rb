@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def update_servings_for
     @user = User.find(current_user.id)
-    if @user.update(:servings_for => params[:servings_for])
+    if @user.update(servings_for: params[:servings_for])
       redirect_to current_user, success: '更新しました'
     else
       render 'show'
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-        params.require(:user).permit(:name, :email, :servings_for)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :servings_for)
+  end
 end
